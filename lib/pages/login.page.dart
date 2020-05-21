@@ -17,7 +17,14 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch, //Largura da coluna (L. pagina)
             mainAxisAlignment: MainAxisAlignment.center, //Centralizar
             children: <Widget>[
-              Text('Texto'),
+              TextFormField(
+                autofocus: true,
+                keyboardType: TextInputType.number,
+                style: new TextStyle(color: Colors.white, fontSize: 20),
+                decoration: InputDecoration(
+                    labelText: "CPF",
+                    labelStyle: TextStyle(color: Colors.white)),
+              ),
             ],
           ),
         ),
