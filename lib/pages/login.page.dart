@@ -21,10 +21,10 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               TextFormField(
                 autofocus: true,
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.emailAddress,
                 style: new TextStyle(color: Colors.white, fontSize: 20),
                 decoration: InputDecoration(
-                    labelText: "CPF",
+                    labelText: "E-mail",
                     labelStyle: TextStyle(color: Colors.white)),
               ),
               Divider(),
