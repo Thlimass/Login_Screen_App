@@ -25,6 +25,15 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: "CPF",
                     labelStyle: TextStyle(color: Colors.white)),
               ),
+              Divider(),
+              TextFormField(
+                autofocus: true,
+                keyboardType: TextInputType.text,
+                style: new TextStyle(color: Colors.white, fontSize: 20),
+                decoration: InputDecoration(
+                    labelText: "Senha",
+                    labelStyle: TextStyle(color: Colors.white)),
+              ),
             ],
           ),
         ),
