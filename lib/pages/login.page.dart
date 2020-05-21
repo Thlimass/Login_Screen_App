@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -35,6 +36,18 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: "Senha",
                     labelStyle: TextStyle(color: Colors.white)),
               ),
+              Divider(),
+              ButtonTheme(
+                height: 60.0 ,
+                child: RaisedButton(
+                  onPressed: () => {}, //função p/ executar botão
+                  child: Text(
+                  "Entrar",
+                style: TextStyle(color: Colors.deepPurple),
+              ),
+                color: Colors.white, //Cor do botão
+              ),
+             )
             ],
           ),
         ),
