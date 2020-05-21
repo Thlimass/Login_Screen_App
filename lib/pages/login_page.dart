@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:loginscreen/pages/register_user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,8 +8,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String _email, _password;
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String _email, _password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +61,8 @@ class _LoginPageState extends State<LoginPage> {
               ButtonTheme(
                 height: 60.0 ,
                 child: RaisedButton(
-                  onPressed: () => {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterUser()))
-                  }, //função p/ executar botão
+                  onPressed: login,
+                  //função p/ executar botão
                   child: Text(
                   "Entrar",
                 style: TextStyle(color: Colors.deepPurple),
@@ -75,6 +76,20 @@ class _LoginPageState extends State<LoginPage> {
       ),
 
     );
+  }
+  Future<void> login() async {
+    final formState = _formKey.currentState;
+    if(formState.validate()) {
+      formState.save();
+      try{
+        FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterUser()));
+            //TODO: Navigate to Home
+      }catch(e){
+        print(e.message);
+      }
+
+    }
   }
 }
 

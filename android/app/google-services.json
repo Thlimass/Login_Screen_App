@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "436697883618",
+    "firebase_url": "https://applogin-20cc0.firebaseio.com",
+    "project_id": "applogin-20cc0",
+    "storage_bucket": "applogin-20cc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436697883618:android:472afded4a02e35983cfbb",
+        "android_client_info": {
+          "package_name": "br.com.loginscreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436697883618-66i3tuo68b3001e6agk610r7734uj724.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9EJkUdAgfRLA_izbfyL2mPpNYKRhf5f8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436697883618-66i3tuo68b3001e6agk610r7734uj724.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
