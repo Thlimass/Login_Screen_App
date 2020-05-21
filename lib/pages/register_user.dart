@@ -8,6 +8,14 @@ class RegisterUser extends StatefulWidget {
 class _RegisterUserState extends State<RegisterUser> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: Column(
+          children: [Text('Tela de cadastro')],
+        ),
+      ) ,
+    );
   }
 }

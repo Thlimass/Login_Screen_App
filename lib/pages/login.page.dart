@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loginscreen/pages/register_user.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               TextFormField(
                 autofocus: true,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 style: new TextStyle(color: Colors.white, fontSize: 20),
                 decoration: InputDecoration(
                     labelText: "CPF",
@@ -40,7 +41,9 @@ class _LoginPageState extends State<LoginPage> {
               ButtonTheme(
                 height: 60.0 ,
                 child: RaisedButton(
-                  onPressed: () => {}, //função p/ executar botão
+                  onPressed: () => {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterUser()))
+                  }, //função p/ executar botão
                   child: Text(
                   "Entrar",
                 style: TextStyle(color: Colors.deepPurple),
