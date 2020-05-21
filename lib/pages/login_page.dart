@@ -4,10 +4,12 @@ import 'package:loginscreen/pages/register_user.dart';
 
 class LoginPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginPageState createState() => new _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _email, _password;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +20,18 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: EdgeInsets.all(10),
         child: Center(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch, //Largura da coluna (L. pagina)
             mainAxisAlignment: MainAxisAlignment.center, //Centralizar
             children: <Widget>[
               TextFormField(
+                validator: (input) {
+                  if(input.isEmpty){
+                    return 'Porfavor digite seu e-mail!';
+                  }
+                },
+                onSaved: (input) => _email = input,
                 autofocus: true,
                 keyboardType: TextInputType.emailAddress,
                 style: new TextStyle(color: Colors.white, fontSize: 20),
@@ -32,6 +41,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Divider(),
               TextFormField(
+                validator: (input) {
+                  if(input.length < 8){
+                    return 'Sua senha deve ter pelo menos 8 caracteres!';
+                  }
+                },
+                onSaved: (input) => _email = input,
                 autofocus: true,
                 obscureText: true, //esconder a senha
                 keyboardType: TextInputType.text,
@@ -62,3 +77,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
