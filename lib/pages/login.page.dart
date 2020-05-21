@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
               Divider(),
               TextFormField(
                 autofocus: true,
+                obscureText: true, //esconder a senha
                 keyboardType: TextInputType.text,
                 style: new TextStyle(color: Colors.white, fontSize: 20),
                 decoration: InputDecoration(
