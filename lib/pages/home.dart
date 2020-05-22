@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 AuthProvider().logOut();
               },
-            )
+            ),
           ],
         ),
       ),

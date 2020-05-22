@@ -78,12 +78,22 @@ class _LoginPageState extends State<LoginPage> {
               ),
                 color: Colors.white, //Cor do botão
               ),
+             ),
+            Divider(),
+        ButtonTheme(
+          height: 60.0 ,
+          child: RaisedButton(
+            onPressed: () async {
+              bool res = await AuthProvider().loginWithGoogle();
+              if(!res)
+                print("error logging in with google");
+              },
+              ),
              )
             ],
           ),
         ),
       ),
-
     );
   }
 }
