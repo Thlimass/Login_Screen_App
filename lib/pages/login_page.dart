@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:loginscreen/services/firebase_auth.dart';
 
@@ -7,9 +8,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _emailController;
+  TextEditingController _passwordController;
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String _email, _password;
+  @override
+  void initState() {
+    _emailController = TextEditingController(text: "");
+    _passwordController = TextEditingController(text: "");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,51 +27,47 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: EdgeInsets.all(10),
         child: Center(
-          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch, //Largura da coluna (L. pagina)
             mainAxisAlignment: MainAxisAlignment.center, //Centralizar
             children: <Widget>[
               TextFormField(
-                validator: (input) {
-                  if(input.isEmpty){
-                    return 'Porfavor digite seu e-mail!';
-                  }
-                },
-                onSaved: (input) => _email = input,
+                controller: _emailController,
+                decoration: InputDecoration(
+                    labelText: "E-mail",
+                    labelStyle: TextStyle(color: Colors.white),
+                  hintText: "Digite seu email!"
+                ),
                 autofocus: true,
                 keyboardType: TextInputType.emailAddress,
                 style: new TextStyle(color: Colors.white, fontSize: 20),
-                decoration: InputDecoration(
-                    labelText: "E-mail",
-                    labelStyle: TextStyle(color: Colors.white)),
+
               ),
               Divider(),
               TextFormField(
-                validator: (input) {
-                  if(input.length < 8){
-                    return 'Sua senha deve ter pelo menos 8 caracteres!';
-                  }
-                },
-                onSaved: (input) => _email = input,
+                controller: _passwordController,
+                decoration: InputDecoration(
+                    labelText: "Senha",
+                    labelStyle: TextStyle(color: Colors.white),
+                    hintText: "Digite sua senha!"
+                ),
                 autofocus: true,
                 obscureText: true, //esconder a senha
                 keyboardType: TextInputType.text,
                 style: new TextStyle(color: Colors.white, fontSize: 20),
-                decoration: InputDecoration(
-                    labelText: "Senha",
-                    labelStyle: TextStyle(color: Colors.white)),
+
               ),
               Divider(),
               ButtonTheme(
                 height: 60.0 ,
                 child: RaisedButton(
                   onPressed: ()async {
-                    if(_email.isEmpty || _password.isEmpty) {
+                    if(_emailController.text.isEmpty ||
+                        _passwordController.text.isEmpty) {
                       print("E-mail e senha não podem estar vazios");
                       return;
                   }
-                    bool res = await AuthProvider().signInWithEmail(_email, _password);
+                    bool res = await AuthProvider().signInWithEmail(_emailController.text, _passwordController.text);
                     if(!res) {
                       print('Falha no login!');
                     }
