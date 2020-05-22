@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:loginscreen/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home: LoginPage(),
+      home: MainSreen(),
     );
   }
 }
 
+  class MainSreen extends StatelessWidget {
+  @override
+    Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
+      builder: (context,AsyncSnapshot<FirebaseUser> snapshot){
+        if(snapshot.connectionState == ConnectionState.waiting)
+          return SplashPage()
+        if(!snapshot.hasData || snapshot.data == null)
+          return LoginPage();
+        return HomePage();
+      },
+    );
+   }
+  }
 
