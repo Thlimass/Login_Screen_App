@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loginscreen/services/firebase_auth.dart';
 
-class HomePage extends StatefulWidget {
+
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,11 +14,18 @@ class HomePage extends StatefulWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('Home Page')
+            RaisedButton(
+              child: Text("Log out"),
+              onPressed: () {
+                AuthProvider().logOut();
+              },
+            )
           ],
-         ),
         ),
-      );
-    }
+      ),
+    );
+  }
+}
 
 
 
