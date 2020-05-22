@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginscreen/services/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -59,8 +60,16 @@ class _LoginPageState extends State<LoginPage> {
               ButtonTheme(
                 height: 60.0 ,
                 child: RaisedButton(
-                  onPressed: () => {},
-                  //função p/ executar botão
+                  onPressed: ()async {
+                    if(_email.isEmpty || _password.isEmpty) {
+                      print("E-mail e senha não podem estar vazios");
+                      return;
+                  }
+                    bool res = await AuthProvider().signInWithEmail(_email, _password);
+                    if(!res) {
+                      print('Falha no login!');
+                    }
+                  },
                   child: Text(
                   "Entrar",
                 style: TextStyle(color: Colors.deepPurple),
