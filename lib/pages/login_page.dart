@@ -62,6 +62,8 @@ class _LoginPageState extends State<LoginPage> {
               Divider(),
               ButtonTheme(
                 height: 60.0 ,
+                buttonColor: Colors.white,         //  <-- light color
+                textTheme: ButtonTextTheme.primary, //  <-- dark text for light background
                 child: RaisedButton(
                   onPressed: ()async {
                     if(_emailController.text.isEmpty ||
@@ -78,18 +80,23 @@ class _LoginPageState extends State<LoginPage> {
                   "Entrar",
                 style: TextStyle(color: Colors.deepPurple),
               ),
-                color: Colors.white, //Cor do botão
               ),
              ),
             Divider(),
         ButtonTheme(
           height: 60.0 ,
+          buttonColor: Colors.blue,         //  <-- light color
+          textTheme: ButtonTextTheme.primary, //  <-- dark text for light background
           child: RaisedButton(
             onPressed: () async {
               bool res = await AuthProvider().loginWithGoogle();
               if(!res)
                 print("error logging in with google");
               },
+            child: Text(
+              "Sign in with Google",
+              style: TextStyle(color: Colors.white),
+            ),
               ),
              )
             ],
