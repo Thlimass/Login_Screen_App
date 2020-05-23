@@ -36,7 +36,8 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                     labelText: "E-mail",
                     labelStyle: TextStyle(color: Colors.white),
-                  hintText: "Digite seu email!"
+                  hintText: "Digite seu email",
+                    hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                 ),
                 autofocus: true,
                 keyboardType: TextInputType.emailAddress,
@@ -49,7 +50,8 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                     labelText: "Senha",
                     labelStyle: TextStyle(color: Colors.white),
-                    hintText: "Digite sua senha!"
+                    hintText: "Digite sua senha",
+                    hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                 ),
                 autofocus: true,
                 obscureText: true, //esconder a senha
