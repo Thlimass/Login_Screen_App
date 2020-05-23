@@ -13,13 +13,13 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Home Page')
+            Text('Home Page'),
             RaisedButton(
               child: Text("Log out"),
               onPressed: () {
                 AuthProvider().logOut();
               },
-            ),
+            )
           ],
         ),
       ),
