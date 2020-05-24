@@ -8,24 +8,20 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
+        actions: <Widget>[
+          // action button
+          IconButton(
+            icon: Icon(Icons.power_settings_new),
+            onPressed: () {
+              AuthProvider().logOut();
+            },
+          ),
+        ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text('Home Page'),
-            RaisedButton(
-              child: Text("Log out"),
-              onPressed: () {
-                AuthProvider().logOut();
-              },
-            )
-          ],
-        ),
-      ),
-    );
+     );
+    }
   }
-}
+
 
 
 
