@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:loginscreen/services/firebase_auth.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -84,19 +85,19 @@ class _LoginPageState extends State<LoginPage> {
              ),
             Divider(),
         ButtonTheme(
-          height: 60.0 ,
-          buttonColor: Colors.blue,         //  <-- light color
-          textTheme: ButtonTextTheme.primary, //  <-- dark text for light background
-          child: RaisedButton(
-            onPressed: () async {
-              bool res = await AuthProvider().loginWithGoogle();
-              if(!res)
-                print("error logging in with google");
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FloatingActionButton(
+                backgroundColor: Colors.blueAccent[700],
+                child: Icon(FontAwesomeIcons.google,color: Color(0xFFFFFFFF),),
+              onPressed: () async {
+                bool res = await AuthProvider().loginWithGoogle();
+                if(!res)
+                  print("error logging in with google");
               },
-            child: Text(
-              "Sign in with Google",
-              style: TextStyle(color: Colors.white),
-            ),
+              ),
+             ],
               ),
              )
             ],
