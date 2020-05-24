@@ -84,6 +84,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
              ),
             Divider(),
+        SizedBox(),
+        Container(
+          alignment: Alignment(1.0, 0.0),
+          padding: EdgeInsets.only(top: 01.0, left: 20.0),
+          child: Text('Forgot Password',
+          style: TextStyle(
+            color: Colors.grey,
+            fontFamily: 'Montserrat',
+            decoration: TextDecoration.underline
+          ),
+          ),
+        ),
         ButtonTheme(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
